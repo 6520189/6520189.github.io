@@ -10,7 +10,14 @@ const pets = [
     {"name": "Oliver", "type": "Cat", "age": 1, "img": "img/cats/cat03.jpg"},
     {"name": "Lily", "type": "Cat", "age": 4, "img": "img/cats/cat04.jpg"},
     {"name": "Simba", "type": "Cat", "age": 2, "img": "img/cats/cat05.jpg"},
-    {"name": "Nala", "type": "Cat", "age": 3, "img": "img/cats/cat06.jpg"}
+    {"name": "Nala", "type": "Cat", "age": 3, "img": "img/cats/cat06.jpg"},
+    {"name": "Cappy", "type": "Capybara", "age": 2, "img": "img/capybaras/capybara01.jpg"},
+    {"name": "Chill", "type": "Capybara", "age": 3, "img": "img/capybaras/capybara02.jpg"},
+    {"name": "Zen", "type": "Capybara", "age": 1, "img": "img/capybaras/capybara03.jpg"},
+    {"name": "Rio", "type": "Bird", "age": 1, "img": "img/birds/bird01.jpg"},
+    {"name": "Sky", "type": "Bird", "age": 2, "img": "img/birds/bird02.jpg"},
+    {"name": "Sunny", "type": "Bird", "age": 3, "img": "img/birds/bird03.jpg"},
+    {"name": "Rainbow", "type": "Bird", "age": 2, "img": "img/birds/bird04.jpg"}
 ];
 
 function loadPets() {

@@ -193,33 +193,67 @@ nav a {
 }
 
 .pet-list {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .pet {
     border: 2px solid #ddd;
     padding: 15px;
     text-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.pet:hover {
+    transform: translateY(-5px);
 }
 
 .pet img {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
-button {
-    background-color: #008CBA;
-    color: white;
+.pet h3 {
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+.pet p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.pet button {
+    margin-top: 10px;
+    width: 100%;
     padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #005f7a;
+.pet button:hover {
+    background-color: #357abd;
+}
+
+@media (max-width: 768px) {
+    .pet-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 10px;
+    }
 }
 
 .pets-section {

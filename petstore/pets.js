@@ -20,22 +20,53 @@ const pets = [
     {"name": "Rainbow", "type": "Bird", "age": 2, "img": "img/birds/bird04.jpg"}
 ];
 
-function loadPets() {
-    console.log('Loading pets...');
-    const petList = document.getElementById('pet-list');
-    pets.forEach(pet => {
-        const petItem = document.createElement('div');
-        petItem.className = 'pet';
-        petItem.innerHTML = `
+// Function to create a pet card
+function createPetCard(pet) {
+    return `
+        <div class="pet" data-type="${pet.type}">
             <img src="${pet.img}" alt="${pet.name}">
             <h3>${pet.name}</h3>
             <p>Type: ${pet.type}</p>
             <p>Age: ${pet.age} years</p>
             <button onclick="adoptPet()">Adopt Now</button>
-        `;
-        petList.appendChild(petItem);
+        </div>
+    `;
+}
+
+// Function to load and filter pets
+function loadPets() {
+    console.log('Loading pets...');
+    const $petList = $('#pet-list');
+    $petList.empty(); // Clear existing pets
+
+    // Get selected types
+    const selectedTypes = $('input[name="pet-type"]:checked').map(function() {
+        return $(this).val();
+    }).get();
+
+    // Filter and display pets
+    pets.forEach(pet => {
+        if (selectedTypes.includes(pet.type)) {
+            $petList.append(createPetCard(pet));
+        }
     });
 }
 
-document.addEventListener('DOMContentLoaded', loadPets);
-console.log('Pets loaded successfully.'); 
+// Function to handle checkbox changes
+function handleFilterChange() {
+    loadPets();
+}
+
+// Document ready handler
+$(document).ready(function() {
+    // Initial load
+    loadPets();
+
+    // Add change event listener to checkboxes
+    $('input[name="pet-type"]').on('change', handleFilterChange);
+});
+
+// Adopt pet function (placeholder)
+function adoptPet() {
+    alert('Thank you for your interest in adoption! Please contact us for more information.');
+} 
